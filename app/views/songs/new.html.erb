@@ -5,7 +5,19 @@
   <%= f.text_field :title %>
   <br />
 
+  <%= f.label :artist_name %>
+  <%= f.text_field :artist_name %>
+  <br />
+
+  <%= f.collection_select :genre_id, Genre.all, :name, :name %>
+
+  <%= f.fields_for :notes do |note_form| %>
+    <%= note_form.label :note %>
+    <%= note_form.text_area :content %>
+  <% end %>
+
   <%= f.submit %>
 <% end %>
+
 
 
